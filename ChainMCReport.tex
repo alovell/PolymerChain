@@ -25,6 +25,16 @@
 
 \subsection{Interaction}
 
+Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \textbf{Reference this.}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs as a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
+
+The Lennard-Jones interaction is 
+
+\begin{equation}
+V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
+\end{equation}
+
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  This form takes into account the induced-dipole and dipole-dipole interactions between pairs of particles.  (\textbf{Look at the previous report for details on this interaction - and a citation and figure}).  See Figure 1 (or other).
+
 \subsection{Algorithm}
 
 Maybe this will be its own section instead of a subsection.\\
@@ -43,7 +53,7 @@ Talk briefly about what we calculated.  \textbf{Varying size, varying dimension,
 
 There is always future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain.  The same results as \textbf{(put reference to either equations or figures)} should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the difference between this free self-avoiding walk calculated here and a self-avoiding walk confined to a grid.  In this way, we could see how the size of the polymer is related to the number of atoms and the dimensionality of the problem.  \\
 
-There are also several thermodynamical quantities that could be calculated from this system, including specific heat, thermal energy, and \textbf{many more}.  Still, we successfully modeled a polymer chain of \textbf{N} atoms in \textbf{two-} and three-dimensions.  
+There are also several thermodynamical quantities that could be calculated from this system, including specific heat, thermal energy, and \textbf{many more}.  Although we used a fixed bond length between each successive atom and a Lennard Jones interaction between all pairs of atoms, there are many other interactions that could describe a more realistic polymer.  This includes using a stiff spring to model the interaction between successive atoms.  We also could have changed the strength of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  Still, we successfully modeled a polymer chain of \textbf{N} atoms in \textbf{two-} and three-dimensions.  
 
 \end{multicols}
 
