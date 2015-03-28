@@ -1,4 +1,4 @@
-  subroutine calcpot(i,V,Vtot,N,r)
+   subroutine calcpot(i,V,Vtot,N,r)
    implicit none
    integer, intent(in) :: i,N
    real*8, intent(inout) :: Vtot
@@ -36,6 +36,6 @@
       enddo 
    end if 
    
-   print *, "Vtot = ",Vtot
+   !print *, "Vtot = ",Vtot
    
    end subroutine calcpot

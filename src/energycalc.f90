@@ -1,35 +1,33 @@
-   subroutine pickconfig(i,r,N,T,pos,Vtot)
+   subroutine pickconfig(i,r,N,T,pos,Vtot,nang)
    implicit none
-   integer, intent(in) :: i,N
-   real*8, intent(in) :: T,pos(6,3),Vtot
+   integer, intent(in) :: i,N,nang
+   real*8, intent(in) :: T,pos(nang,3),Vtot
    real*8, intent(inout) :: r(N,3)
-   real*8 Z,Vtemp(6),dtemp,rand,prob
-   integer j,k,count,pickk
+   real*8 Z,Vtemp(20),dtemp,rand,prob
+   integer j,k,count,pickk,l
    
    ! calculate potential for each possible configuration
-   ! for the ith atom\
-   do k=1,6
+   ! for the ith atom
+   do k=1,nang
       Vtemp(k) = 0
       do j=1,i-1
          dtemp = 0
          dtemp = (r(j,1)-pos(k,1))**2 + (r(j,2)-pos(k,2))**2 + (r(j,3)-pos(k,3))**2
-	 print *, dtemp,j,k
+	 !print *, dtemp,j,k
          Vtemp(k) = Vtemp(k) + 4*((1.d0/dtemp)**6 - (1.d0/dtemp)**3)
       enddo 
-      Vtemp(k) = Vtemp(k) + Vtot
-      print *, "Vtemp = ", Vtemp(k),k
+      Vtemp(k) = Vtemp(k) !+ Vtot
+      !print *, "Vtemp = ", Vtemp(k),k
    enddo 
    
    ! calculate partition function
    Z = 0
-   do k=1,6
-      Z = Z + exp(-Vtemp(k)/T)
+   !k=0
+   do l=1,nang
+      Z = Z + exp(-Vtemp(l)/T)
+      !print *, Z,l,exp(-Vtemp(l)/T)
    enddo 
-   print *, "Z = ", Z
-   ! check to make sure Z isn't zero
-   ! if zero, try new configuration
-   !do while (Z==0)
-   !   call pickdir(i,r,N,pos)
+   !print *, "Z = ", Z
       
    !enddo  
    
@@ -39,13 +37,13 @@
    ! Metropolis algorithm
    count = 1
    prob = 0
-   do while (count < 7)
+   do while (count < nang+1)
       prob = prob + exp(-Vtemp(count)/T)/Z
       !print *, "prob = ", prob, rand, exp(-Vtemp(count)/T)/Z, count
       if (rand <= prob) then
          !print *, rand, exp(-Vtemp(count)/T)/Z, count
          pickk = count
-	 count = 20
+	 count = 1000
       else
          count = count + 1
       end if 

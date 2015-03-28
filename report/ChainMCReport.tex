@@ -30,6 +30,8 @@ This report is broken up into the following sections.  In Section \ref{theory}, 
 \section{Theory}
 \label{theory}
 
+In the following section, we will describe some of the concepts that will be needed to simulate a polymer chain.
+
 \subsection{Interaction}
 
 Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \textbf{Reference this.}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
@@ -40,13 +42,63 @@ The Lennard-Jones interaction is
 V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
 \end{equation}
 
-\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \textbf{(or other)}.
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we can introduced a cut-off radius, $r_c$, beyond which the potential between two particles is taken to be zero.  Thus, we use the interaction 
+
+\begin{equation}
+V_{LJ} (r) = \begin{cases}
+4 \epsilon \left [ \left (\frac{\sigma}{r} \right )^{12} - \left (\frac{\sigma}{r} \right )^{6} \right ] & r \le r_c \\
+0 & r > r_c
+\end{cases}
+\label{cutoff}
+\end{equation}
+
+This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Figures/VLJ.pdf}
+\caption{The shape of the Lennard-Jones potential.  Here, $\sigma=1$ fm (the distance where the potential crosses the r-axis) and $\epsilon =1$ MeV (the maximum depth of the interaction).}
+\label{VLJfig}
+\end{center}
+\end{figure}
 
 \subsection{Algorithm}
 
 Maybe this will be its own section instead of a subsection.\\
 
-The algorithm that we use for this Monte Carlo simulation is the Rosenbluth algorithm.  
+The algorithm that we use to pick the next point for this Monte Carlo simulation is the Rosenbluth algorithm proposed in 1956 by Marshall and Arianna Rosenbluth.  As compared to simple sampling - which generates all configurations with equal probability - the Rosenbluth algorithm generates configurations with different probabilities.  These probabilities cause the chain to be self-avoiding and make it so that it terminates when it is trapped in a dead end.  \cite{SSRosenbluth} \\
+
+On a square (or cubic) lattice, this means that each nearest neighbor is tested as to whether or not it is already occupied, and the the probability that it moves to that cite is based on the energy of the potential new configuration using the statistical factor
+
+\begin{equation}
+\label{prob}
+P_i = \frac{1}{Z} e^{-V_i/T}
+\end{equation}
+
+\noindent where
+
+\begin{equation}
+\label{part}
+Z = \sum \limits _{i=1}^{N} e^{-V_i/T}
+\end{equation}
+
+\noindent Here, $V_i$ is the potential energy between the $i^{th}$ potential configuration and the rest of the chain, $N$ is the number of unoccupied nearest neighbors, and T is the temperature of the system.  These probabilities are mapped onto the range $[0,1]$, and a random number is picked within that same range.  If this random number falls within the range $P_i$, then the next atom is added at the position from which $V_i$ was calculated.  \\
+
+However, we can also grow our polymer off of a grid.  In this case we have to sample from a circle in two-dimensions or a sphere in three-dimensions.  Do do this we sample from $\mathrm{cos}\theta \in [-1,1]$ and $\phi \in [0,2\pi]$ (taking $\theta = \pi/2$ for the two-dimensional case, to fix the third dimension).  This samples over the circumference of a unit circle in two-dimensions and the surface of a sphere in three-dimensions.  Some number, $N$, of the points are randomly chosen, and new positions are calculated based on 
+
+\begin{equation}
+\begin{split}
+x^{j}_i & = x^{j-1} + \mathrm{sin}\theta _i \mathrm{cos}\phi _i \\
+y^{j}_i & = y^{j-1} + \mathrm{sin} \theta _i \mathrm{sin} \phi _i \\
+z^{j}_i & = z^{j-1} + \mathrm{cos} \theta _i
+\end{split}
+\end{equation}
+
+\noindent The probabilities for each $\textbf{r}_i$ to be chosen is the same as described above with equations (\ref{prob}) and (\ref{part}).
+
+\subsection{Configuration}
+
+The main quantity that we want to calculate is the relationship between the size of the system and the number of atoms in the polymer, which should be related to the dimensionality of the simulation (e.g. two-, three-, or more dimensional space).  
 
 \section{Initial Conditions}
 \label{IC}
@@ -55,6 +107,8 @@ I don't know if this will actually be relevant.
 
 \section{Discussion}
 \label{discuss}
+
+In this section, we present the main result of our calculation.  We were able to vary the temperature of the polymer as well as the number of atoms to calculate the radius of gyration and see how well our simulation compares to (\ref{}).  These results are summarized in Table \ref{results}
 
 \section{Conclusion}
 \label{concl}

@@ -2,35 +2,35 @@
    implicit none
    integer, intent(in) :: N
    real*8, intent(in) :: r(N,3)
-   real*8 maxx,maxy,maxz,minx,miny,minz,diffx,diffy,diffz
-   real*8 rsqvar,rvar,rstd,rmm
+   real*8 xcm,ycm,zcm,rcm,rg,ri
    integer j
    
-   ! max/min value for each coordinate
-   maxx = maxval(r(:,1))
-   minx = minval(r(:,1))
-   maxy = maxval(r(:,2))
-   miny = minval(r(:,2))
-   maxz = maxval(r(:,3))
-   minz = minval(r(:,3))
+   ! calculate the radius of gyration
+   ! R_g^2 = (1/N) \sum <(r_i - R_cm)^2>
    
-   ! calculate the distance in each dimension
-   diffx = maxx - minx
-   diffy = maxy - miny
-   diffz = maxz - minz
-   rmm = 0.5*sqrt(diffx**2 + diffy**2 + diffz**2)
-   
-   ! std. deviation?
-   rsqvar = 0
-   rvar = 0
+   ! calculate the center of the distribution, R_cm
+   xcm = 0
+   ycm = 0
+   zcm = 0
    do j=1,N
-      rsqvar = rsqvar + (r(j,1)**2 + r(j,2)**2 + r(j,3)**2)
-      rvar = rvar + sqrt(r(j,1)**2 + r(j,2)**2 + r(j,3)**2)
+      xcm = xcm + r(j,1)
+      ycm = ycm + r(j,2)
+      zcm = zcm + r(j,3)
    enddo
-   rsqvar = rsqvar/real(N)
-   rvar = rvar/real(N)
-   rstd = sqrt(rsqvar - rvar**2)
-   print *, rmm, rsqvar, rvar, rstd
-   print *, log(rmm),log(rstd),log(real(N))
+   
+   rcm = sqrt(xcm**2 + ycm**2 + zcm**2)/N
+   
+   ! R_g calculation
+   rg = 0
+   do j=1,N
+      ri = sqrt(r(j,1)**2 + r(j,2)**2 + r(j,3)**2)
+      rg = rg + (ri - rcm)**2
+   enddo
+   rg = sqrt(rg/N)
+   print *, rg
+   print *, log(rg), log(real(N))
+   open(unit=20,file="RvsNT5010000.txt",access="append")
+   write(20,*) log(rg), log(real(N))
+   close(20)
       
    end subroutine calcsize
