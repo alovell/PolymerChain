@@ -79,12 +79,12 @@ P_i = \frac{1}{Z} e^{-V_i/T}
 
 \begin{equation}
 \label{part}
-Z = \sum \limits _{i=1}^{N} e^{-V_i/T}
+Z = \sum \limits _{i=1}^{N_a} e^{-V_i/T}
 \end{equation}
 
-\noindent Here, $V_i$ is the potential energy between the $i^{th}$ potential configuration and the rest of the chain, $N$ is the number of unoccupied nearest neighbors, and T is the temperature of the system.  These probabilities are mapped onto the range $[0,1]$, and a random number is picked within that same range.  If this random number falls within the range $P_i$, then the next atom is added at the position from which $V_i$ was calculated.  \\
+\noindent Here, $V_i$ is the potential energy between the $i^{th}$ potential configuration and the rest of the chain, $N_a$ is the number of unoccupied nearest neighbors, and T is the temperature of the system.  These probabilities are mapped onto the range $[0,1]$, and a random number is picked within that same range.  If this random number falls within the range $P_i$, then the next atom is added at the position from which $V_i$ was calculated.  \\
 
-However, we can also grow our polymer off of a grid.  In this case we have to sample from a circle in two-dimensions or a sphere in three-dimensions.  Do do this we sample from $\mathrm{cos}\theta \in [-1,1]$ and $\phi \in [0,2\pi]$ (taking $\theta = \pi/2$ for the two-dimensional case, to fix the third dimension).  This samples over the circumference of a unit circle in two-dimensions and the surface of a sphere in three-dimensions.  Some number, $N$, of the points are randomly chosen, and new positions are calculated based on 
+However, we can also grow our polymer off of a grid.  In this case we have to sample from a circle in two-dimensions or a sphere in three-dimensions.  Do do this we sample from $\mathrm{cos}\theta \in [-1,1]$ and $\phi \in [0,2\pi]$ (taking $\theta = \pi/2$ for the two-dimensional case, to fix the third dimension).  This samples over the circumference of a unit circle in two-dimensions and the surface of a sphere in three-dimensions.  Some number, $N_a$, of the points are randomly chosen, and new positions are calculated based on 
 
 \begin{equation}
 \begin{split}
@@ -98,7 +98,21 @@ z^{j}_i & = z^{j-1} + \mathrm{cos} \theta _i
 
 \subsection{Configuration}
 
-The main quantity that we want to calculate is the relationship between the size of the system and the number of atoms in the polymer, which should be related to the dimensionality of the simulation (e.g. two-, three-, or more dimensional space).  
+The main quantity that we want to calculate is the relationship between the size of the system and the number of atoms in the polymer, which should be related to the dimensionality of the simulation (e.g. two-, three-, or more dimensional space).  To do this, we relate the gyromagnetic radius, $R_g$, to the number of atoms in the chain, $N$, where 
+
+\begin{equation}
+R_g^2 = \frac{1}{N} \sum \limits _{i=1}^{N} \langle (r_i - R_{cm})^2 \rangle
+\end{equation} 
+
+\noindent and 
+
+\begin{equation}
+R \sim N^{\nu}
+\end{equation}
+
+The temperature, $T_{\Theta}$, defines the transition between a chain-like polymer ($T<T_{\Theta}$) and a dense, ball-like polymer ($T>T_{\Theta}$).  Below $T_{\Theta}$, $\nu = 1/ 2$, at $T_{\Theta}$, $\nu = 1/3$, and above $T_{\Theta}$, $\nu$ scales with the dimensionality of the simulation - namely, $\nu = 3/(d+2)$, where $d$ is the dimensionality of the simulation.  \\
+
+This is the main observable we will be calculating for this Monte Carlo simulation.  From this, we can also define the $\Theta $-temperature, $T_{\Theta}$.
 
 \section{Initial Conditions}
 \label{IC}
