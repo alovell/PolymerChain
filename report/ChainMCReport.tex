@@ -32,7 +32,7 @@ This report is broken up into the following sections.  In Section \ref{theory}, 
 
 \subsection{Interaction}
 
-Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \textbf{Reference this.}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs as a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
+Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \textbf{Reference this.}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
 
 The Lennard-Jones interaction is 
 
@@ -40,7 +40,7 @@ The Lennard-Jones interaction is
 V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
 \end{equation}
 
-\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  This form takes into account the induced-dipole and dipole-dipole interactions between pairs of particles.  (\textbf{Look at the previous report for details on this interaction - and a citation and figure}).  See Figure 1 (or other).
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \textbf{(or other)}.
 
 \subsection{Algorithm}
 
