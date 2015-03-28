@@ -21,7 +21,9 @@
 
 \section{Introduction}
 
-Polymer chains are linked atoms of the same type that interact directly between sequential atoms through a spring force and through other pairs via some other long- or short-range potential (given by hydrogen bonds, van der Waals interactions, or the Lennard-Jones interaction, for example).  \\
+Polymer are chains atoms or molecules of the same type that interact directly between sequential atoms through a spring force and through other pairs via some other long- or short-range potential (given, for example, by hydrogen bonds, van der Waals interactions, or the Lennard-Jones interaction).  The typical number of atoms in a polymer is between $10^3$ and $10^5$.  \\
+
+One would often think that a molecular dynamics calculation would be used to simulate a polymer chain.  In this case, the movement of the chain would be calculated at each time step, the forces between each molecule calculated, and then used to update the chain's next position.  However, because of the different types of motion involved in the problem - ranging from fast motion of the individual units to slow motion of the chain as a whole - this process can be inefficient, or even impossible, for long chains.  \cite{PhilNotes} Instead, Monte Carlo simulations are used to discover properties of the polymer.  \\
 
 This report is broken up into the following sections.  In Section \ref{theory}, we will discuss the theory behind the problem, including the interaction between atoms and the algorithm that was used to run the Monte Carlo simulation.  Section \ref{IC} gives a brief discussion of the initial conditions of the simulation and the different grids that were explored.  The results of the simulation are discussed in Section \ref{discuss}.  Finally, in Section \ref{concl}, we provide a summary of our work along with progress that could be make to this project in the future. \\
 
@@ -65,6 +67,6 @@ There are also several thermodynamical quantities that could be calculated from 
 
 \end{multicols}
 
-\bibliography{ChainBib}
+\bibliography{chainbib}
 
 \end{document}
