@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 10:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 10:55
 entering extended mode
 **C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
 (C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
@@ -355,14 +355,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-<Figures/VLJ.pdf, id=1, 361.35pt x 207.77625pt>
+[1
+
+{C:/Users/Amy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<Figures/VLJ.pdf, id=15, 361.35pt x 207.77625pt>
 File: Figures/VLJ.pdf Graphic file (type pdf)
  <use Figures/VLJ.pdf>
 Package pdftex.def Info: Figures/VLJ.pdf used on input line 60.
 (pdftex.def)             Requested size: 229.8775pt x 132.18056pt.
- [1
 
-{C:/Users/Amy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
@@ -388,46 +389,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
  []
 
 [2 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/VLJ.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 <Figures/T1plot.pdf, id=35, 845.1575pt x 597.23125pt>
 File: Figures/T1plot.pdf Graphic file (type pdf)
  <use Figures/T1plot.pdf>
-Package pdftex.def Info: Figures/T1plot.pdf used on input line 147.
+Package pdftex.def Info: Figures/T1plot.pdf used on input line 149.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 <Figures/T2plot.pdf, id=36, 845.1575pt x 597.23125pt>
 File: Figures/T2plot.pdf Graphic file (type pdf)
  <use Figures/T2plot.pdf>
-Package pdftex.def Info: Figures/T2plot.pdf used on input line 157.
+Package pdftex.def Info: Figures/T2plot.pdf used on input line 159.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
 <Figures/T5plot.pdf, id=37, 845.1575pt x 597.23125pt>
 File: Figures/T5plot.pdf Graphic file (type pdf)
  <use Figures/T5plot.pdf>
-Package pdftex.def Info: Figures/T5plot.pdf used on input line 165.
+Package pdftex.def Info: Figures/T5plot.pdf used on input line 167.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 [3 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T1plot.pdf, page 
 is rotated 90 degrees> <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figur
-es/T2plot.pdf, page is rotated 90 degrees> <C:/Users/Amy/Documents/GitHub/Polym
-erChain/report/Figures/T5plot.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+es/T2plot.pdf, page is rotated 90 degrees>]
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
@@ -441,18 +441,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+[4 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T5plot.pdf, page 
+is rotated 90 degrees>]
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
@@ -461,7 +467,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--228
 Here is how much of TeX's memory you used:
  5020 strings out of 493921
  73071 string characters out of 3144882
- 145741 words of memory out of 3000000
+ 149741 words of memory out of 3000000
  8263 multiletter control sequences out of 15000+200000
  12468 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -480,7 +486,7 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ChainMCReport.pdf (5 pages, 207921 bytes).
+Output written on ChainMCReport.pdf (5 pages, 208916 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
