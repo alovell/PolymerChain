@@ -3,6 +3,12 @@
 \bibitem{sun}
 
 
+\bibitem{PERM}
+Peter Grassberger.
+\newblock Pruned-enriched rosenbluth method: Simulations of $\theta$ polymers
+  of chain length up to 1 000 000.
+\newblock {\em Phys. Rev. E}, 56:3682--3693, Sep 1997.
+
 \bibitem{PhilNotes}
 Hendrik~Meyer J\"org~Baschnagel, Joachim P.~Wittmer.
 \newblock Monte carlo simulation of polymers: Coarse-grained models.
@@ -16,6 +22,6 @@ Marshall~N. Rosenbluth and Arianna~W. Rosenbluth.
 \bibitem{Nunes}
 Ian~J. Thompson and Filomena~M. Nunes.
 \newblock {\em Nuclear Reactions for Astrophysics}.
-\newblock Cambridge University Press, 2009.
+\newblock Cambridge University Press, New York, 2009.
 
 \end{thebibliography}

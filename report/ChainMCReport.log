@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 17:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 18:14
 entering extended mode
 **C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
 (C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
@@ -453,17 +453,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
 [4 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T5plot.pdf, page 
 is rotated 90 degrees>]
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
@@ -472,16 +477,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
 (C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.bbl [5])
 [6] (C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.aux) ) 
 Here is how much of TeX's memory you used:
- 5021 strings out of 493921
- 73069 string characters out of 3144882
- 150751 words of memory out of 3000000
- 8264 multiletter control sequences out of 15000+200000
+ 5022 strings out of 493921
+ 73075 string characters out of 3144882
+ 153754 words of memory out of 3000000
+ 8265 multiletter control sequences out of 15000+200000
  12468 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,15n,38p,881b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,15n,38p,915b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/
 Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
@@ -496,7 +506,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX
 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ChainMCReport.pdf (6 pages, 208057 bytes).
+Output written on ChainMCReport.pdf (6 pages, 209081 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
