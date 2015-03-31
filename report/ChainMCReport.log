@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  28 MAR 2015 18:42
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 00:29
 entering extended mode
 **C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
 (C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
@@ -358,22 +358,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 <Figures/VLJ.pdf, id=1, 361.35pt x 207.77625pt>
 File: Figures/VLJ.pdf Graphic file (type pdf)
  <use Figures/VLJ.pdf>
-Package pdftex.def Info: Figures/VLJ.pdf used on input line 59.
+Package pdftex.def Info: Figures/VLJ.pdf used on input line 60.
 (pdftex.def)             Requested size: 229.8775pt x 132.18056pt.
  [1
 
 {C:/Users/Amy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
@@ -383,35 +378,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
  []
 
 
-LaTeX Warning: Reference `' on page 2 undefined on input line 125.
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
 
 
-LaTeX Warning: Reference `results' on page 2 undefined on input line 125.
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
 
 [2 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/VLJ.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+
+Package caption Warning: \label without proper \caption on input line 140.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `results' on page 3 undefined on input line 129.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.bbl) [3]
-(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+
+ []
+
+(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.bbl [3])
+[4] (C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4996 strings out of 493921
- 72687 string characters out of 3144882
- 142650 words of memory out of 3000000
- 8242 multiletter control sequences out of 15000+200000
+ 5000 strings out of 493921
+ 72735 string characters out of 3144882
+ 162711 words of memory out of 3000000
+ 8246 multiletter control sequences out of 15000+200000
  12468 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,15n,38p,827b,413s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,15n,38p,827b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
@@ -425,9 +447,9 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ChainMCReport.pdf (3 pages, 185661 bytes).
+Output written on ChainMCReport.pdf (4 pages, 194089 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
