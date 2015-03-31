@@ -14,15 +14,11 @@ program chainmc
    !call random_seed()
    call init_random_seed()
    
-   ! iterate through number of atoms
-   ! run multiple times for an error
-   do k=1,1000
-   
    ! number atoms in the chain
    N=10000
    
    ! Temperature
-   T = 5.d0
+   T = 2.d0
    
    ! allocate memory for the positions in the chain
    allocate (r(N,3))
@@ -44,7 +40,6 @@ program chainmc
    ! define a number of sample points
    nangles = 90
    do i=3,N
-      !print *,i
       ! calculate the energy of the previous configuration
       call calcpot(i,V,Vtot,N,r)
       
@@ -73,8 +68,6 @@ program chainmc
    ! for some sort of error
    deallocate(r)
    deallocate(V)
-   
-   enddo
 
 
 end program chainmc

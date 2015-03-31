@@ -19,10 +19,8 @@
       ! calculate the potential between the newest atom and the previous ones
       do j=1,i-2
          distsq = (r(j,1)-r(i-1,1))**2 + (r(j,2)-r(i-1,2))**2 + (r(j,3)-r(i-1,3))**2
-	 !print *, j,i-1,"r**2 = ",distsq
 	 V(i-1,j) = 4*((1.d0/distsq)**6 - (1.d0/distsq)**3)
 	 V(j,i-1) = V(i-1,j)
-	 !print *, distsq,V(j,i-1),j,i-1
       enddo 
    end if 
    
@@ -35,7 +33,5 @@
          Vtot = Vtot + V(i-1,j)
       enddo 
    end if 
-   
-   !print *, "Vtot = ",Vtot
    
    end subroutine calcpot

@@ -27,9 +27,7 @@
       rg = rg + (ri - rcm)**2
    enddo
    rg = sqrt(rg/N)
-   print *, rg
-   print *, log(rg), log(real(N))
-   open(unit=20,file="RvsNT5010000.txt",access="append")
+   open(unit=20,file="RvsNT2010000.txt",access="append")
    write(20,*) log(rg), log(real(N))
    close(20)
       

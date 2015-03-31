@@ -117,7 +117,7 @@ Once the entire chain (a given number of atoms, $N$) is constructed, the radius 
 \section{Initial Conditions}
 \label{IC}
 
-The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   For each new positions, 95 points on the unit sphere are tested.  \\
+The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   For each new positions, 90 points on the unit sphere are tested.  \\
 
 In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1$ eV $\approx 11600$ K.  Thus, even seemingly small temperatures become large quickly.\\
 
@@ -182,7 +182,7 @@ From these fits, we find that $\nu = 0.4345 \pm 0.03440$ for $T=1.0$ eV, $\nu = 
 
 From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with a linear regression.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  We can see from Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig} that the error bars are significant for the range of data displayed.  \textbf{Unless I can ask someone about this and implement it before the end of the day.} \\
 
-Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain.  
+Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain.   \\
 
 \section{Conclusion}
 \label{concl}

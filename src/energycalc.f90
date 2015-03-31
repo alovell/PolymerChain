@@ -13,35 +13,25 @@
       do j=1,i-1
          dtemp = 0
          dtemp = (r(j,1)-pos(k,1))**2 + (r(j,2)-pos(k,2))**2 + (r(j,3)-pos(k,3))**2
-	 !print *, dtemp,j,k
          Vtemp(k) = Vtemp(k) + 4*((1.d0/dtemp)**6 - (1.d0/dtemp)**3)
       enddo 
       Vtemp(k) = Vtemp(k) !+ Vtot
-      !print *, "Vtemp = ", Vtemp(k),k
    enddo 
    
    ! calculate partition function
    Z = 0
-   !k=0
    do l=1,nang
       Z = Z + exp(-Vtemp(l)/T)
-      !print *, Z,l,exp(-Vtemp(l)/T)
    enddo 
-   !print *, "Z = ", Z
-      
-   !enddo  
    
    ! generate random number 
    call random_number(rand)
    ! pick new position based on random number
-   ! Metropolis algorithm
    count = 1
    prob = 0
    do while (count < nang+1)
       prob = prob + exp(-Vtemp(count)/T)/Z
-      !print *, "prob = ", prob, rand, exp(-Vtemp(count)/T)/Z, count
       if (rand <= prob) then
-         !print *, rand, exp(-Vtemp(count)/T)/Z, count
          pickk = count
 	 count = 1000
       else

@@ -1,9 +1,8 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: ChainMCReport.aux
 The style file: plain.bst
 Database file #1: chainbib.bib
-Warning--to sort, need author or key in sun
-Warning--empty author in sun
-Warning--empty title in sun
-Warning--empty journal in sun
-Warning--empty year in sun
-(There were 5 warnings)
+Repeated entry---line 43 of file chainbib.bib
+ : %@article{sun
+ :              }
+I'm skipping whatever remains of this entry
+(There was 1 error message)

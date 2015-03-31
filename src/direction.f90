@@ -23,7 +23,7 @@ subroutine pickdir(i,r,N,pos,nang)
       theta = 2*theta - 1 ! between 1 and -1
       theta = acos(theta) ! becomes an angle
       phi = phi*2.d0*pi
-      !print *, theta, phi
+      ! define array of new possible positions
       pos(j,1) = r(i-1,1)+sin(theta)*cos(phi)
       pos(j,2) = r(i-1,2)+sin(theta)*sin(phi)
       pos(j,3) = r(i-1,3)+cos(theta)
