@@ -126,7 +126,7 @@ In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}). 
 \section{Discussion}
 \label{discuss}
 
-In this section, we present the main result of our calculation.  We were able to vary the temperature of the polymer as well as the number of atoms to calculate the radius of gyration and see how well our simulation compares to (\ref{RNcomparison}).  These results are summarized in Table \ref{results}.  
+In this section, we present the main result of our calculation.  We were able to vary the temperature of the polymer, from 1.0 eV to 5.0 eV, as well as the number of atoms, $N=5000, 10000, 15000$, to calculate the radius of gyration and see how well our simulation compares to (\ref{RNcomparison}).  These results are summarized in Table 1.  \\
 
 \begin{table*}
 \begin{center}
@@ -142,6 +142,24 @@ $N=15000$ & 2.994968 & 0.376915 & 3.722428 & 0.343053 & 3.872835 & 0.318437 \\ \
 \end{center}
 \end{table*}
 
+In Figure \ref{}, we show the results of the simulation plotted along with the best fit line for each set of data.  These fits are given in Table 2.  \\
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline \textbf{T (eV)} & \textbf{m (fm)} & \textbf{b (fm)} & \textbf{$\chi ^2$} \\ \hline
+1.0 & 0.4345 & -1.1968 & \\ \hline
+2.0 & 0.5826 & -1.8139 & \\ \hline
+5.0 & 0.5102 & -1.042 & \\ \hline
+\end{tabular}
+\caption{Slopes ($m$) and y-intercepts ($b$) for the best fit lines for the simulation data in Table 1.  Best fit lines are given as $log(R_g) = m*log(N) + b$.  Here $log$ indicates the natural log.  In this case, the slope $m$ gives the value for $\nu$ from (\ref{RNcomparison}).}
+\end{center}
+\end{table*}
+
+From these fits, we find that $\nu = 0.4345$ for $T=1.0$ eV, $\nu = 0.5826$ for $T = 2.0$ eV, and $\nu = 0.5102$ for $T = 5.0$ eV.  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
+
+Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain.  
+
 \section{Conclusion}
 \label{concl}
 
@@ -149,7 +167,9 @@ Talk briefly about what we calculated.  \textbf{Varying size, varying dimension,
 
 There is always future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain.  The same results as \textbf{(put reference to either equations or figures)} should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the difference between this free self-avoiding walk calculated here and a self-avoiding walk confined to a grid.  In this way, we could see how the size of the polymer is related to the number of atoms and the dimensionality of the problem.  \\
 
-There are also several thermodynamical quantities that could be calculated from this system, including specific heat, thermal energy, and \textbf{many more}.  Although we used a fixed bond length between each successive atom and a Lennard Jones interaction between all pairs of atoms, there are many other interactions that could describe a more realistic polymer.  This includes using a stiff spring to model the interaction between successive atoms.  We also could have changed the strength of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  Still, we successfully modeled a polymer chain of \textbf{N} atoms in \textbf{two-} and three-dimensions.  
+There are also several thermodynamical quantities that could be calculated from this system, including specific heat, thermal energy, and \textbf{many more}.  Although we used a fixed bond length between each successive atom and a Lennard Jones interaction between all pairs of atoms, there are many other interactions that could describe a more realistic polymer.  This includes using a stiff spring to model the interaction between successive atoms.  We also could have changed the strength of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  Still, we successfully modeled a polymer chain of \textbf{N} atoms in \textbf{two-} and three-dimensions.  \\
+
+\textbf{Mention PERM, more accurate way of calculating these things.}
 
 \appendix
 
@@ -172,7 +192,7 @@ To find the error on each data point, we average the standard deviation for each
 
 \noindent Here, $\sigma _x$ is the error for the variable $x$ from each calculation.  We can see that the errors decrease as $1/\sqrt{N}$.  \\
 
-Because we are calculating a fit to data, we should also report a $\chi ^2$ value for that fit, to assess its "goodness" - or the quality of the fit when compared to data.  In this case, we would calculate the $\chi^2$ of each of the linear fits that are made to the simulation "data".
+Because we are calculating a fit to data, we should also report a $\chi ^2$ value for that fit, to assess its "goodness" - or the quality of the fit when compared to data.  \cite{Nunes}  In this case, we would calculate the $\chi^2$ of each of the linear fits that are made to the simulation "data".
 
 \begin{equation}
 \chi ^2 = \sum \limits _{i=1} ^N \frac{(x^{sim} - x^{fit})^2}{\sigma _x ^2}

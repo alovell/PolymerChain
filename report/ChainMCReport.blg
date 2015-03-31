@@ -1,3 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: ChainMCReport.aux
 The style file: plain.bst
 Database file #1: chainbib.bib
+I was expecting a `,' or a `}'---line 24 of file chainbib.bib
+ :  
+ :  address = {New York}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in sun
+Warning--empty author in sun
+Warning--empty title in sun
+Warning--empty journal in sun
+Warning--empty year in sun
+(There was 1 error message)
