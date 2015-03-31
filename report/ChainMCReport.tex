@@ -34,7 +34,7 @@ In the following section, we will describe some of the concepts that will be nee
 
 \subsection{Interaction}
 
-Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \textbf{Reference this.}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
+Polymer chains can be modeled in several ways.  One of the most common ways is describing the interaction between sequential pairs of atoms as a stiff spring and putting in a Lennard-Jones potential between every other pair of atoms.  \cite{PhilNotes}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms, while keeping the interaction between all other pairs a Lennard-Jones interaction.  There are, of course, more complicated that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but those will not be explored here.\\
 
 The Lennard-Jones interaction is 
 
@@ -43,17 +43,7 @@ The Lennard-Jones interaction is
 V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
 \end{equation}
 
-\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we can introduced a cut-off radius, $r_c$, beyond which the potential between two particles is taken to be zero.  Thus, we use the interaction 
-
-\begin{equation}
-V_{LJ} (r) = \begin{cases}
-4 \epsilon \left [ \left (\frac{\sigma}{r} \right )^{12} - \left (\frac{\sigma}{r} \right )^{6} \right ] & r \le r_c \\
-0 & r > r_c
-\end{cases}
-\label{cutoff}
-\end{equation}
-
-This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we would allow us to introduce a cut-off radius beyond which the potential between two particles is taken to be zero.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
 
 \begin{figure}[H]
 \begin{center}
@@ -64,8 +54,9 @@ This form takes into account the short-range repulsive force between the two ato
 \end{figure}
 
 \subsection{Algorithm}
+\label{RA}
 
-The algorithm that we use to pick the next point for this Monte Carlo simulation is the Rosenbluth algorithm proposed in 1956 by Marshall and Arianna Rosenbluth.  As compared to simple sampling - which generates all configurations with equal probability - the Rosenbluth algorithm generates configurations with different probabilities.  These probabilities cause the chain to be self-avoiding and make it so that it terminates when it is trapped in a dead end.  \cite{SSRosenbluth} \\
+The algorithm that we use to pick the next point for this Monte Carlo simulation is the Rosenbluth algorithm proposed in 1956 by Marshall and Arianna Rosenbluth.  As compared to simple sampling - which generates all configurations with equal probability - the Rosenbluth algorithm generates configurations with different probabilities.  These probabilities cause the chain to be self-avoiding and make it so that it terminates when it is trapped in a dead end.  \cite{Rosenbluth} \\
 
 On a square (or cubic) lattice, this means that each nearest neighbor is tested as to whether or not it is already occupied, and the the probability that it moves to that cite is based on the energy of the potential new configuration using the statistical factor
 
@@ -97,9 +88,10 @@ z^{j}_i & = z^{j-1} + \mathrm{cos} \theta _i
 
 \subsection{Configuration}
 
-The main quantity that we want to calculate is the relationship between the size of the system and the number of atoms in the polymer, which should be related to the dimensionality of the simulation (e.g. two-, three-, or more dimensional space).  To do this, we relate the gyromagnetic radius, $R_g$, to the number of atoms in the chain, $N$, where 
+The main quantity that we want to calculate is the relationship between the size of the system and the number of atoms in the polymer, which should be related to the dimensionality of the simulation (e.g. two-, three-, or more dimensional space).  To do this, we relate the gyration radius, $R_g$, to the number of atoms in the chain, $N$, where 
 
 \begin{equation}
+\label{rg}
 R_g^2 = \frac{1}{N} \sum \limits _{i=1}^{N} \langle (r_i - R_{cm})^2 \rangle
 \end{equation} 
 
@@ -116,14 +108,18 @@ The temperature, $T_{\Theta}$, defines the transition between a chain-like polym
 
 This is the main observable we will be calculating for this Monte Carlo simulation.  From this, we can also define the $\Theta $-temperature, $T_{\Theta}$.
 
+\subsection{Structure of the Code}
+
+In this subsection, we will briefly describe the structure of the code.  Initially, two atoms are placed at a distance of one unit length apart from each other.  The potential energy of the system is calculated.  To prepare to place the next atom, some number of points on the unit sphere are randomly chosen from a distribution of $cos\theta \phi$.  The potential energy of each of these configurations is calculated, and the Rosenbluth algorithm, described in \ref{RA}, is performed to choose the position of the next atom.  Once this is done, the potential energy of the system is again calculated and the method repeats:  choose points on the unit sphere, implement the Rosenbluth algorithm, calculate the potential energy of the system.  \\
+
+Once the entire chain (a given number of atoms, $N$) is constructed, the radius of gyration, from (\ref{rg}), is calculated for this polymer.  This chain-building process is repeated again and until to build up enough statistics to calculate a mean and and standard deviation (for the error).  
+
 \section{Initial Conditions}
 \label{IC}
 
-The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   \\
+The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   For each new positions, 95 points on the unit sphere are tested.  \\
 
 In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1$ eV $\approx 11600$ K.  Thus, even seemingly small temperatures become large quickly.\\
-
-\textbf{Mention cut-off radius used - look into code}
 
 \section{Discussion}
 \label{discuss}
@@ -191,11 +187,11 @@ Still, in the region where our simulation is valid, we have calculated reasonabl
 \section{Conclusion}
 \label{concl}
 
-Talk briefly about what we calculated.  \textbf{Varying size, varying dimension, varying temperatures - find the critical temperature Theta.}\\
+\textbf{This is worded poorly.  Fix it!}  In this work, we were able to construct a Monte Carlo simulation of a three-dimensional polymer chain of approximately $10^4$ atoms at temperatures of 1.0 eV, 2.0 eV, and 5.0 eV.  The polymer was simulated off of a grid.  By comparing the natural log of the gyration radius and the number of atoms in the chain, we were able to discover properties of the chain itself and find the exponent, $\nu$.  We found that $\nu = 0.4345 \pm 0.03440$ for $T = 1.0 $ ev, $\nu = 0.5826 \pm 0.1642$ for $T =2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T=5.0$ eV.  Through this, we were able to compare to known behavior above and below the $\Theta$-temperature.  \\
 
-There is always future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain.  The same results as \textbf{(put reference to either equations or figures)} should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the difference between this free self-avoiding walk calculated here and a self-avoiding walk confined to a grid.  In this way, we could see how the size of the polymer is related to the number of atoms and the dimensionality of the problem.  \\
+However, there is still future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain, $\nu$.  The same scaling ($\nu = 1/3$ below $T_\Theta$, $\nu = 1/2$ at $T_\Theta$, and $\nu = 3/(d+2)$ above $T_\Theta$ should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the differences between this type of self-avoiding walk that is not confined to a grid and a self-avoid walk confined to a cubic grid (or other shape grid).  From this, we could see how the dimensionality affects various grids on which the chain is created.  \\
 
-There are also several thermodynamical quantities that could be calculated from this system, including specific heat, thermal energy, and \textbf{many more}.  Although we used a fixed bond length between each successive atom and a Lennard Jones interaction between all pairs of atoms, there are many other interactions that could describe a more realistic polymer.  This includes using a stiff spring to model the interaction between successive atoms.  We also could have changed the strength of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  Still, we successfully modeled a polymer chain of \textbf{N} atoms in \textbf{two-} and three-dimensions.  \\
+There are also several thermodynamical quantities that could be calculated from this system, including specific heat and thermal energy.  We could also change the interaction between the atoms within each chain.  Although we used a fixed bond length between each successive atom and a Lennard-Jones interaction between all pairs of atoms, there are other interactions that could describe a more realistic polymer, including using a stiff spring to model the interaction between successive atoms instead of a fixed bond length.  We also could have changed the strength (and type) of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  Still, without all of this, we successfully modeled a polymer chain of $10^4$ atoms in three-dimensions without a grid.  \\
 
 \textbf{Mention PERM, more accurate way of calculating these things.}
 
@@ -220,7 +216,7 @@ To find the error on each data point, we average the standard deviation for each
 
 \noindent Here, $\sigma _x$ is the error for the variable $x$ from each calculation.  We can see that the errors decrease as $1/\sqrt{N}$.  \\
 
-Because we are calculating a fit to data, we should also report a $\chi ^2$ value for that fit, to assess its "goodness" - or the quality of the fit when compared to data.  \cite{Nunes}  In this case, we would calculate the $\chi^2$ of each of the linear fits that are made to the simulation "data".
+Because we are calculating a fit to data, we should also report a $\chi ^2$ value for that fit, to assess its "goodness" - or the quality of the fit when compared to data.  \cite{Nunes}  In this case, we would calculate the $\chi^2$ of each of the linear fits that are made to the simulation data.
 
 \begin{equation}
 \chi ^2 = \sum \limits _{i=1} ^N \frac{(x^{sim} - x^{fit})^2}{\sigma _x ^2}
@@ -228,7 +224,9 @@ Because we are calculating a fit to data, we should also report a $\chi ^2$ valu
 
 \noindent In this case, $x^{sim}$ is the parameter value from the simulation, $x^{fit}$ is the parameter value from the fit through the simulation data, and $\sigma _x ^2$ is the square of the standard deviation (the variance) from (\ref{stddev}). \\
 
-Although this does not give us an error on the fits that are being made, it does give some indication as to the quality of the fit.
+Although this does not give us an error on the fits that are being made, it does give some indication as to the quality of the fit.\\
+
+\textbf{Also put something in about the LINEST from Excel.  If possible, find out more about what that actually calculates.  SOMETHING}
 
 \end{multicols}
 
