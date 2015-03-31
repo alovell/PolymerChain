@@ -12,11 +12,9 @@ Hendrik~Meyer J\"org~Baschnagel, Joachim P.~Wittmer.
 \newblock {\em John von Neumann Institute for Computing}, 23:83--140, 2004.
 
 \bibitem{sun}
-Thomas Prellberg.
-\newblock From rosenbluth sampling to perm - rare event sampling with
-  stochastic growth algorithms.
-\newblock {\em Lecture given at the International Summer School, Modern
-  Computational Science 2012 - Optimization}, 2012.
+University of~St.~Andrews.
+\newblock The photosphere.
+\newblock {\em Lecture notes at University of St. Andrews}, 1995.
 
 \bibitem{Rosenbluth}
 Marshall~N. Rosenbluth and Arianna~W. Rosenbluth.
@@ -27,5 +25,11 @@ Marshall~N. Rosenbluth and Arianna~W. Rosenbluth.
 Ian~J. Thompson and Filomena~M. Nunes.
 \newblock {\em Nuclear Reactions for Astrophysics}.
 \newblock Cambridge University Press, New York, 2009.
+
+\bibitem{verlet}
+Loup Verlet.
+\newblock Computer "experiments" on classical fluids. i. thermodynamical
+  properties of lennard-jones molecules.
+\newblock {\em Phys. Rev.}, 159:98--103, Jul 1967.
 
 \end{thebibliography}

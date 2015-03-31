@@ -6,6 +6,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{multicol,caption,listings}
 \usepackage{cite}
+\usepackage[stable]{footmisc}
 
 \bibliographystyle{plain}
 
@@ -43,7 +44,7 @@ The Lennard-Jones interaction is
 V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
 \end{equation}
 
-\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we would allow us to introduce a cut-off radius beyond which the potential between two particles is taken to be zero.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we would allow us to introduce a cut-off radius beyond which the potential between two particles is taken to be zero.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  \cite{verlet}  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
 
 \begin{figure}[H]
 \begin{center}
@@ -169,7 +170,7 @@ In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the
 \begin{table*}
 \begin{center}
 \begin{tabular}{| c | c | c | c |}
-\hline \textbf{T (eV)} & \textbf{m (fm)} & \textbf{b (fm)} & \textbf{$\chi ^2$} \\ \hline
+\hline \textbf{T (eV)} & \textbf{m} & \textbf{b} & \textbf{$\chi ^2$} \\ \hline
 1.0 & 0.4345 & -1.1968 & 0.007327 \\ \hline
 2.0 & 0.5826 & -1.8139 & 0.1483 \\ \hline
 5.0 & 0.5102 & -1.042 & 0.003000 \\ \hline
@@ -178,18 +179,32 @@ In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the
 \end{center}
 \end{table*}
 
-From these fits, we find that $\nu = 0.4345 \pm 0.03440$ for $T=1.0$ eV, $\nu = 0.5826 \pm 0.1642$ for $T = 2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T = 5.0$ eV.  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
+From these fits, we find that $\nu = 0.4345 \pm 0.03440$ for $T=1.0$ eV, $\nu = 0.5826 \pm 0.1642$ for $T = 2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T = 5.0$ eV.\footnote{These errors are discussed in more detail in the Appendix.}  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
 
-From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with a linear regression.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  We can see from Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig} that the error bars are significant for the range of data displayed.  \textbf{Unless I can ask someone about this and implement it before the end of the day.} \\
+From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with a linear regression.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  We can see from Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig} that the error bars are significant for the range of data displayed.\\
 
-Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain.   \\
+These large errors did not decrease with the number of statistics.  (\textbf{reference to a table that I have not yet constructed.})  From the figures above, we can see that these large errors contribute to some uncertainty around the slope of the best fit lines.  Even though the best fit lines have a very low $\chi ^2$ value, this value is misleading, as alluded to previously.  Ideally, we want a $\chi^2$ value of 1 for every degree of freedom in the problem (e.g. $\chi ^2/dof =1$) which would indicate a perfect fit.  A very low $\chi ^2$, such as we have here, indicates that we have under-constrained our model by allowing too many free parameters for the number of data points. Thus, having run the simulation for more $N$ and $T$ values would serve to better constrain our fit, as well as give us more confidence that the parameters we calculated adequately described the results of our simulation.  \\
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline & $T=1.0$ eV & $T = 2.0$ eV & $T = 5.0$ eV \\ \hline
+$N=5000$ & 64 (0.343484) & 500 (0.312228) & 1000 (0.330394) \\ \hline
+$N=10000$ & 43 (0.295998)  & 500 (0.335429) & 810 (0.321192) \\ \hline
+$N=15000$ & 45 (0.376915) & 290 (0.343053) & 1147 (0.318437) \\ \hline
+\end{tabular}
+\caption{Number of chains produced for each combination of number of atoms in the chain (first column) and temperature (top row).  The number in parentheses gives the error calculated for each of these points, from Table 1.  It is clear to see that the errors do not decrease as the number of calculations increases.}
+\end{center}
+\end{table*}
+
+Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain, even if the error analysis leaves somewhat of a question as to the behavior of the chain at our various temperatures of interest.   \\
 
 \section{Conclusion}
 \label{concl}
 
 In this work, we were able to construct a Monte Carlo simulation of a three-dimensional polymer chain of approximately $10^4$ atoms at temperatures of 1.0 eV, 2.0 eV, and 5.0 eV.  The polymer was simulated in without being confined to a grid.  By comparing the natural log of the gyration radius and the number of atoms in the chain, we were able to discover properties of the chain itself and find the exponent, $\nu$.  We found that $\nu = 0.4345 \pm 0.03440$ for $T = 1.0 $ ev, $\nu = 0.5826 \pm 0.1642$ for $T =2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T=5.0$ eV.  Through this, we were able to compare to known behavior above and below the $\Theta$-temperature.  \\
 
-However, there is still future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain, $\nu$.  The same scaling ($\nu = 1/3$ below $T_\Theta$, $\nu = 1/2$ at $T_\Theta$, and $\nu = 3/(d+2)$ above $T_\Theta$ should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the differences between this type of self-avoiding walk that is not confined to a grid and a self-avoid walk confined to a cubic grid (or other shape grid).  From this, we could see how the dimensionality affects various grids on which the chain is created.  \\
+However, there is still future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain, $\nu$.  The same scaling ($\nu = 1/3$ below $T_\Theta$, $\nu = 1/2$ at $T_\Theta$, and $\nu = 3/(d+2)$ above $T_\Theta$) should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the differences between this type of self-avoiding walk that is not confined to a grid and a self-avoid walk confined to a cubic grid (or other shape grid).  From this, we could see how the dimensionality affects various grids on which the chain is created.  \\
 
 There are also several thermodynamical quantities that could be calculated from this system, including specific heat and thermal energy.  We could also change the interaction between the atoms within each chain.  Although we used a fixed bond length between each successive atom and a Lennard-Jones interaction between all pairs of atoms, there are other interactions that could describe a more realistic polymer, including using a stiff spring to model the interaction between successive atoms instead of a fixed bond length.  We also could have changed the strength (and type) of the interaction between various pairs to see what kinds of shapes we could form with our polymer chain.  \\
 
@@ -228,7 +243,7 @@ Because we are calculating a fit to data, we should also report a $\chi ^2$ valu
 
 Although this does not give us an error on the fits that are being made, it does give some indication as to the quality of the fit.\\
 
-\textbf{Also put something in about the LINEST from Excel.  If possible, find out more about what that actually calculates.  SOMETHING}
+The errors for the best fits were calculated using linear regression methods.  \textbf{Find out about the way excel works for this}
 
 \end{multicols}
 
