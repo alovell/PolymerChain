@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 08:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 10:36
 entering extended mode
 **C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
 (C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
@@ -392,79 +392,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
+<Figures/T1plot.pdf, id=35, 845.1575pt x 597.23125pt>
+File: Figures/T1plot.pdf Graphic file (type pdf)
+ <use Figures/T1plot.pdf>
+Package pdftex.def Info: Figures/T1plot.pdf used on input line 147.
+(pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
-LaTeX Warning: Reference `' on page 3 undefined on input line 145.
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+<Figures/T2plot.pdf, id=36, 845.1575pt x 597.23125pt>
+File: Figures/T2plot.pdf Graphic file (type pdf)
+ <use Figures/T2plot.pdf>
+Package pdftex.def Info: Figures/T2plot.pdf used on input line 157.
+(pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
+
+<Figures/T5plot.pdf, id=37, 845.1575pt x 597.23125pt>
+File: Figures/T5plot.pdf Graphic file (type pdf)
+ <use Figures/T5plot.pdf>
+Package pdftex.def Info: Figures/T5plot.pdf used on input line 165.
+(pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
+
+ []
+
+[3 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T1plot.pdf, page 
+is rotated 90 degrees> <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figur
+es/T2plot.pdf, page is rotated 90 degrees> <C:/Users/Amy/Documents/GitHub/Polym
+erChain/report/Figures/T5plot.pdf, page is rotated 90 degrees>]
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.bbl) [4]
-(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.bbl) [5]
+(C:\Users\Amy\Documents\GitHub\PolymerChain\report\ChainMCReport.aux) ) 
 Here is how much of TeX's memory you used:
- 5003 strings out of 493921
- 72749 string characters out of 3144882
- 148717 words of memory out of 3000000
- 8249 multiletter control sequences out of 15000+200000
+ 5020 strings out of 493921
+ 73071 string characters out of 3144882
+ 145741 words of memory out of 3000000
+ 8263 multiletter control sequences out of 15000+200000
  12468 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,15n,38p,880b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ChainMCReport.pdf (4 pages, 199677 bytes).
+<C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on ChainMCReport.pdf (5 pages, 207921 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -25,7 +25,7 @@ Polymer are chains atoms or molecules of the same type that interact directly be
 
 One would often think that a molecular dynamics calculation would be used to simulate a polymer chain.  In this case, the movement of the chain would be calculated at each time step, the forces between each molecule calculated, and then used to update the chain's next position.  However, because of the different types of motion involved in the problem - ranging from fast motion of the individual units to slow motion of the chain as a whole - this process can be inefficient, or even impossible, for long chains.  \cite{PhilNotes} Instead, Monte Carlo simulations are used to discover properties of the polymer.  \\
 
-This report is broken up into the following sections.  In Section \ref{theory}, we will discuss the theory behind the problem, including the interaction between atoms and the algorithm that was used to run the Monte Carlo simulation.  Section \ref{IC} gives a brief discussion of the initial conditions of the simulation and the different grids that were explored.  The results of the simulation are discussed in Section \ref{discuss}.  Finally, in Section \ref{concl}, we provide a summary of our work along with progress that could be make to this project in the future. \\
+This report is broken up into the following sections.  In Section \ref{theory}, we will discuss the theory behind the problem, including the interaction between atoms and the algorithm that was used to run the Monte Carlo simulation.  Section \ref{IC} gives a brief discussion of the initial conditions of the simulation and the different grids that were explored.  The results of the simulation are discussed in Section \ref{discuss}.  Finally, in Section \ref{concl}, we provide a summary of our work along with progress that could be make to this project in the future.  The appendix also provides some detail about our error calculations.  \\
 
 \section{Theory}
 \label{theory}
@@ -121,7 +121,7 @@ This is the main observable we will be calculating for this Monte Carlo simulati
 
 The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   \\
 
-In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1 K \approx 11600$ eV.  Thus, even seemingly small temperatures become large quickly.
+In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1$ eV $\approx 11600$ K.  Thus, even seemingly small temperatures become large quickly.
 
 \section{Discussion}
 \label{discuss}
@@ -142,21 +142,47 @@ $N=15000$ & 2.994968 & 0.376915 & 3.722428 & 0.343053 & 3.872835 & 0.318437 \\ \
 \end{center}
 \end{table*}
 
-In Figure \ref{}, we show the results of the simulation plotted along with the best fit line for each set of data.  These fits are given in Table 2.  \\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Figures/T1plot.pdf}
+\caption{Results for $T=1.0$ eV.  Black dots give the Monte Carlo values calculated for this project, and the dotted-dashed line gives the best fit line through the simulation points.  The solid, dotted, and dashed lines show the values of $\nu$ from (\ref{RNcomparison}).  Each of these three lines has the same y-intercept as the best fit line; thus, if one of these lines was the correct description of the simulation, it would go through the black dots and be aligned with the best fit line.}
+\label{T1fig}
+\end{center}
+\end{figure}
+
+In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the simulation plotted along with the best fit line for each set of data.  These fits are given in Table 2.  \\
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Figures/T2plot.pdf}
+\caption{Same as Figure \ref{T1fig} but for $T=2.0$ eV.  We can see that $\nu = 3/5$ best describes the simulation.}
+\label{T2fig}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Figures/T5plot.pdf}
+\caption{Same as Figure \ref{T1fig} but for $T=5.0$ eV.  We can see that $\nu = 1/2$ best describes the simulation.  This unexpected result is discussed more within this section.}
+\label{T5fig}
+\end{center}
+\end{figure}
 
 \begin{table*}
 \begin{center}
 \begin{tabular}{| c | c | c | c |}
 \hline \textbf{T (eV)} & \textbf{m (fm)} & \textbf{b (fm)} & \textbf{$\chi ^2$} \\ \hline
-1.0 & 0.4345 & -1.1968 & \\ \hline
-2.0 & 0.5826 & -1.8139 & \\ \hline
-5.0 & 0.5102 & -1.042 & \\ \hline
+1.0 & 0.4345 & -1.1968 & 0.007327 \\ \hline
+2.0 & 0.5826 & -1.8139 & 0.1483 \\ \hline
+5.0 & 0.5102 & -1.042 & 0.003000 \\ \hline
 \end{tabular}
 \caption{Slopes ($m$) and y-intercepts ($b$) for the best fit lines for the simulation data in Table 1.  Best fit lines are given as $log(R_g) = m*log(N) + b$.  Here $log$ indicates the natural log.  In this case, the slope $m$ gives the value for $\nu$ from (\ref{RNcomparison}).}
 \end{center}
 \end{table*}
 
 From these fits, we find that $\nu = 0.4345$ for $T=1.0$ eV, $\nu = 0.5826$ for $T = 2.0$ eV, and $\nu = 0.5102$ for $T = 5.0$ eV.  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
+
+From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with a linear regression.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  \textbf{Unless I can ask someone about this and implement it before the end of the day.} \\
 
 Still, in the region where our simulation is valid, we have calculated reasonable results for our three-dimensional simulation of a polymer chain.  
 
