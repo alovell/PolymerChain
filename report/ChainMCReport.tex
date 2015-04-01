@@ -16,13 +16,13 @@
 \author{A. Lovell}
 \maketitle
 
-\noindent \textbf{Abstract}  Polymer chains are of great interest in biophysics, and while one might think to use a molecular dynamics calculation to simulate their configurations, for practical reasons, Monte Carlo techniques are more widely used.  In this project, we will use the Rosenbluth algorithm within a Monte Carlo framework to simulate polymer chains of varying lengths at several temperatures to investigate the correlation between the size of the polymer structure and the number of atoms within the chain.  This will be compared to theoretical models to investigate the systems we can create only using the Lennard-Jones potential.
+\noindent \textbf{Abstract}  Polymer chains are of great interest in biophysics, and while one might think to use a molecular dynamics calculation to simulate their configurations, for practical reasons, Monte Carlo techniques are more widely used.  In this project, we will use the Rosenbluth algorithm within a Monte Carlo framework to simulate polymer chains of varying lengths around $10^4$ atoms at several temperatures to investigate the correlation between the size of the polymer structure and the number of atoms within the chain.  This will be compared to theoretical models to investigate the systems we can create using a fixed distance between sequential atoms and the Lennard-Jones potential between all other pairs.
 
 \begin{multicols}{2}
 
 \section{Introduction}
 
-Polymer are chains atoms or molecules of the same type that interact directly between sequential atoms through a spring force and through other pairs via some other long- or short-range potential (given, for example, by hydrogen bonds, van der Waals interactions, or the Lennard-Jones interaction).  The typical number of atoms in a polymer is between $10^3$ and $10^5$.  \\
+Polymer are chains atoms or molecules of the same type that interact directly between sequential atoms through a spring force and through all pairs via some other long- or short-range potential (given, for example, by hydrogen bonds, van der Waals interactions, or the Lennard-Jones interaction).  The typical number of atoms or molecules in a polymer is between $10^3$ and $10^5$ which can all be of the same type or different types.  \\
 
 One would often think that a molecular dynamics calculation would be used to simulate a polymer chain.  In this case, the movement of the chain would be calculated at each time step, the forces between each molecule calculated, and then used to update the chain's next position.  However, because of the different types of motion involved in the problem - ranging from fast motion of the individual units to slow motion of the chain as a whole - this process can be inefficient, or even impossible, for long chains.  \cite{PhilNotes} Instead, Monte Carlo simulations are used to discover properties of the polymer.  \\
 
