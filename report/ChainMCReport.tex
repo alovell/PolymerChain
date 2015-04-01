@@ -109,11 +109,13 @@ The temperature, $T_{\Theta}$, defines the transition between a chain-like polym
 
 $R_g$ is the main observable we will be calculating for this Monte Carlo simulation.  From this, we can also define - or at least put some constraint on - the $\Theta $-temperature, $T_{\Theta}$.
 
-\subsection{Structure of the Code}
+\subsection{Code}
 
-In this subsection, we will briefly describe the structure of the code.  Initially, two atoms are placed at a distance of one unit length apart from each other.  The potential energy of the system is calculated.  To prepare to place the next atom, some number of points on the unit sphere are randomly chosen from a distribution of $cos\theta \phi$.  The potential energy of each of these configurations is calculated, and the Rosenbluth algorithm, described in \ref{RA}, is performed to choose the position of the next atom.  Once this is done, the potential energy of the system is again calculated and the method repeats:  choose points on the unit sphere, implement the Rosenbluth algorithm, calculate the potential energy of the system.  \\
+In this subsection, we will briefly describe the structure of the code and where the above ideas are implemented. \\
 
-Once the entire chain (a given number of atoms, $N$) is constructed, the radius of gyration, from (\ref{rg}), is calculated for this polymer.  This chain-building process is repeated again and until to build up enough statistics to calculate a mean and and standard deviation (for the error).  
+Initially, two atoms are placed at a distance of one unit length apart from each other.  The potential energy of the system is calculated.  To prepare to place the next atom, some number of points on the unit sphere are randomly chosen from a distribution of $cos\theta d\theta \phi d\phi$.  The potential energy of each of these configurations is calculated, and the Rosenbluth algorithm, described in \ref{RA}, is implemented to choose the position of the next atom.  Once the next position has been chosen, the potential energy of the new system is calculated and the method repeats:  choose points on the unit sphere, implement the Rosenbluth algorithm, calculate the potential energy of the system.  \\
+
+Once the entire chain (a given number of atoms, $N$) is constructed, the radius of gyration, from (\ref{rg}), is calculated for this polymer.  This chain-building process is repeated again and to build up enough statistics to calculate a mean and and standard deviation (for the error).  
 
 \section{Initial Conditions}
 \label{IC}

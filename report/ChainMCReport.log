@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 21:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  31 MAR 2015 21:31
 entering extended mode
 **C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
 (C:/Users/Amy/Documents/GitHub/PolymerChain/report/ChainMCReport.tex
@@ -403,7 +403,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
@@ -413,24 +413,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--124
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
 <Figures/T1plot.pdf, id=35, 845.1575pt x 597.23125pt>
 File: Figures/T1plot.pdf Graphic file (type pdf)
  <use Figures/T1plot.pdf>
-Package pdftex.def Info: Figures/T1plot.pdf used on input line 146.
+Package pdftex.def Info: Figures/T1plot.pdf used on input line 148.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 <Figures/T2plot.pdf, id=36, 845.1575pt x 597.23125pt>
 File: Figures/T2plot.pdf Graphic file (type pdf)
  <use Figures/T2plot.pdf>
-Package pdftex.def Info: Figures/T2plot.pdf used on input line 156.
+Package pdftex.def Info: Figures/T2plot.pdf used on input line 158.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
 
 [3 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T1plot.pdf, page 
@@ -438,13 +443,8 @@ is rotated 90 degrees>] <Figures/T5plot.pdf, id=43, 845.1575pt x 597.23125pt>
 File: Figures/T5plot.pdf Graphic file (type pdf)
 
 <use Figures/T5plot.pdf>
-Package pdftex.def Info: Figures/T5plot.pdf used on input line 164.
+Package pdftex.def Info: Figures/T5plot.pdf used on input line 166.
 (pdftex.def)             Requested size: 229.8775pt x 162.43927pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
@@ -456,23 +456,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--187
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
 
 Package multicol Warning: I moved some lines to the next page.
-(multicol)                Footnotes on page 4 might be wrong on input line 201.
+(multicol)                Footnotes on page 4 might be wrong on input line 203.
 
 
 [4 <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figures/T2plot.pdf, page 
 is rotated 90 degrees> <C:/Users/Amy/Documents/GitHub/PolymerChain/report/Figur
 es/T5plot.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
@@ -492,23 +492,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+
+ []
+
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 244--245
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
@@ -538,7 +543,7 @@ s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on ChainMCReport.pdf (6 pages, 228658 bytes).
+Output written on ChainMCReport.pdf (6 pages, 228493 bytes).
 PDF statistics:
  108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
