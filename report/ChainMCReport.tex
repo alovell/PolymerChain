@@ -120,9 +120,9 @@ Once the entire chain (a given number of atoms, $N$) is constructed, the radius 
 \section{Initial Conditions}
 \label{IC}
 
-The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   For each new positions, 90 points on the unit sphere are tested.  \\
+The first two atoms of the chain were positioned at (0,0,0) and (1,0,0).  Essentially, these positions are arbitrary (only constrained to be 1 unit length apart), but it gives a good starting point for both the polymer on a grid and in free space.   Because this calculation is not performed on a grid, for each new position, 90 points on the unit sphere are tested.  This more easily prevents the chain becoming stuck by only having options to place the next atom too close to previously placed atoms.  \\
 
-In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1$ eV $\approx 11600$ K.  Thus, even seemingly small temperatures become large quickly.\\
+In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ for the Lennard-Jones potential parameters in (\ref{VLJ}).  In order to compare to data from the lab, we would just need to change our potentials to include realistic numbers for these two values.  Along with this, we also are using units where $k_B=1$.  This gives us temperature in eV, with $1$ eV $\approx 11600$ K.  Thus, even seemingly small temperatures quickly become large - and potentially unphysical.\\
 
 \section{Discussion}
 \label{discuss}
