@@ -37,14 +37,16 @@ In the following section, we will describe some of the concepts that will be nee
 
 The interactions between the atoms of polymer chains can be modeled in several ways.  One of the most common ways is to describe the interaction between sequential pairs of atoms as a stiff spring and put in a Lennard-Jones potential between every other pair of atoms.  \cite{PhilNotes}  However, in this project we will take a somewhat simplified approach.  Instead of stiff springs, we will fix the length between each successive pair of atoms (infinitely stiff springs), while keeping the interaction between all other pairs a Lennard-Jones interaction.  There are, of course, more complicated potentials that could be implemented to fold the polymer into more complex shapes (such as proteins or even origami ducks), but these will not be explored here.\\
 
-The Lennard-Jones interaction is 
+The Lennard-Jones potential is 
 
 \begin{equation}
 \label{VLJ}
 V_{LJ}(r) = 4\epsilon \left [ \left ( \frac{\sigma}{r} \right ) ^{12} - \left ( \frac{\sigma}{r}) \right ) ^6 \right ]
 \end{equation}
 
-\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ describes the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we would allow us to introduce a cut-off radius beyond which the potential between two particles is taken to be zero.  This form takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  \cite{verlet}  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
+\noindent where $\epsilon$ is the depth of the interaction, $\sigma$ is related to the particle size, and $r$ is the distance between the interacting pairs.  When the two atoms are far enough apart, they can be viewed as non-interacting.  For this reason, we would be able to introduce a cut-off radius beyond which the potential between two particles is taken to be zero.  \\
+
+The form of (\ref{VLJ}) takes into account the short-range repulsive force between the two atoms due to Coulomb repulsion and the longer-range attractive forces from dipole-dipole and dipole-induced dipole forces.  \cite{verlet}  An example of the Lennard-Jones potential can be found in Figure \ref{VLJfig}.
 
 \begin{figure}[H]
 \begin{center}
