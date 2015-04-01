@@ -127,7 +127,7 @@ In this calculation, we also chose $\epsilon =1$ and $\sigma=1$ for the Lennard-
 \section{Discussion}
 \label{discuss}
 
-In this section, we present the main result of our calculation.  We were able to vary the temperature of the polymer, from 1.0 eV to 5.0 eV, as well as the number of atoms, $N=5000, 10000, 15000$, to calculate the radius of gyration and see how well our simulation compares to (\ref{RNcomparison}).  These results are summarized in Table 1.  \\
+In this section, we present the main result of our calculation.  We were able to vary the temperature of the polymer, from 1.0 eV to 5.0 eV, as well as the number of atoms, $N=5000, 10000, 15000$, to calculate the radius of gyration and see how well our simulation compares to (\ref{RNcomparison}) for known values of $\nu$.  These results are summarized in Table 1 and the method of error, $\sigma_{R_g}$, calculation is discussed in the appendix.  \\
 
 \begin{table*}
 \begin{center}
@@ -139,14 +139,14 @@ $N=10000$ & 2.783211 & 0.295998 & 3.656107 & 0.335429 & 3.642807 & 0.321192 \\ \
 $N=15000$ & 2.994968 & 0.376915 & 3.722428 & 0.343053 & 3.872835 & 0.318437 \\ \hline
 \end{tabular}
 \label{results}
-\caption{Results for a three-dimension polymer chain in free space (not on a grid) for three different temperatures at three different polymer lengths.  Both the mean value and the standard deviation for each set of points is given.}
+\caption{Results for a three-dimension polymer chain in free space (not on a grid) for three different temperatures at three different polymer lengths.  Both the mean value ($log(R_g)$) and the standard deviation ($\sigma_{R_g}$) for each set of points is given.  Here, and throughout the report "log" means log base e - the natural log.}
 \end{center}
 \end{table*}
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=\linewidth]{Figures/T1plot.pdf}
-\caption{Results for $T=1.0$ eV.  Black dots give the Monte Carlo values calculated for this project, and the dotted-dashed line gives the best fit line through the simulation points.  The solid, dotted, and dashed lines show the values of $\nu$ from (\ref{RNcomparison}).  Each of these three lines has the same y-intercept as the best fit line; thus, if one of these lines was the correct description of the simulation, it would go through the black dots and be aligned with the best fit line.}
+\caption{Results for $T=1.0$ eV.  Black dots give the Monte Carlo values calculated for this project, and the dotted-dashed line gives the best fit line through the simulation points.  The solid, dotted, and dashed lines show possible, interesting values of $\nu$ from (\ref{RNcomparison}).  Each of these three lines has the same y-intercept as the best fit line; thus, if one of these lines was the correct description of the simulation, it would go through the black dots and be aligned with the best fit line.}
 \label{T1fig}
 \end{center}
 \end{figure}
@@ -161,10 +161,14 @@ In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the
 \end{center}
 \end{figure}
 
+From these fits, we find that $\nu = 0.4345 \pm 0.03440$ for $T=1.0$ eV, $\nu = 0.5826 \pm 0.1642$ for $T = 2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T = 5.0$ eV.\footnote{These errors are discussed in more detail in the Appendix.}  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
+
+From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with by linear regression, causing a misleadingly small $\chi^2$ value.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  Ideally, we want a $\chi^2$ value of 1 for every degree of freedom in the problem (e.g. $\chi ^2/dof =1$) which would indicate a perfect fit.  A very low $\chi ^2$, such as we have here, indicates that we have under-constrained our model by allowing too many free parameters for the number of data points. Thus, having run the simulation for more $N$ and $T$ values would serve to better constrain our fit, as well as give us more confidence that the parameters we calculated adequately described the results of our simulation.\\
+
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=\linewidth]{Figures/T5plot.pdf}
-\caption{Same as Figure \ref{T1fig} but for $T=5.0$ eV.  We can see that $\nu = 1/2$ best describes the simulation.  This unexpected result is discussed more within this section.}
+\caption{Same as Figure \ref{T1fig} but for $T=5.0$ eV.  We can see that $\nu = 1/2$ best describes the simulation.  This unexpected result is discussed more within the text.}
 \label{T5fig}
 \end{center}
 \end{figure}
@@ -177,15 +181,11 @@ In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the
 2.0 & 0.5826 & -1.8139 & 0.1642 & 0.1483 \\ \hline
 5.0 & 0.5102 & -1.042 & 0.02239 & 0.003000 \\ \hline
 \end{tabular}
-\caption{Slopes ($m$) and y-intercepts ($b$) for the best fit lines for the simulation data in Table 1.  Best fit lines are given as $log(R_g) = m*log(N) + b$.  Here $log$ indicates the natural log.  In this case, the slope $m$ gives the value for $\nu$ from (\ref{RNcomparison}).}
+\caption{Slopes ($m$) and y-intercepts ($b$) for the best fit lines for the simulation data in Table 1.  Best fit lines are given as $log(R_g) = m*log(N) + b$.  Here $log$ indicates the natural log.  In this case, the slope $m$ gives the value for $\nu$ from (\ref{RNcomparison}).  $s_m$ gives the error on the fit - only describing the difference between the values calculated from the fit and the simulation values, and $\chi^2$ takes into account, somewhat, the error from the simulation.}
 \end{center}
 \end{table*}
 
-From these fits, we find that $\nu = 0.4345 \pm 0.03440$ for $T=1.0$ eV, $\nu = 0.5826 \pm 0.1642$ for $T = 2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T = 5.0$ eV.\footnote{These errors are discussed in more detail in the Appendix.}  The first two cases match up well with a temperature just below $T_{\Theta}$ for $T=1.0$ eV and for a temperature above $T_{\Theta}$ that follows the pattern $\nu = 3/(d+2)$ for $T = 2.0$ eV.  (Recall, for this simulation $d=3$ so $\nu = 0.6$.)  However, we see that for $T = 5.0$ eV, $\nu \approx 0.5$ which would seem to indicate that this is the $\Theta$-temperature. This cannot be the case.  To explain this, we note that $5.0$ eV $\approx 58000$ K, which is an order of magnitude hotter than the coolest part of the sun.  \cite{sun}  We assume that at these temperatures, our simple model is no longer valid, and we get nonsensical results from our calculations.  \\
-
-From Table 2, we can also see that the $\chi^2$ values for each of these fits are extremely low.  This is a product of the fact that only three data points are being fit with a linear regression.  The calculated value for $\nu$ also does not take into account the error from the original simulation.  We can see from Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig} that the error bars are significant for the range of data displayed.\\
-
-These large errors did not decrease with the number of statistics, which we have shown in Table 3.  From the figures above, we can see that these large errors contribute to some uncertainty around the slope of the best fit lines.  Even though the best fit lines have a very low $\chi ^2$ value, this value is misleading, as alluded to previously.  Ideally, we want a $\chi^2$ value of 1 for every degree of freedom in the problem (e.g. $\chi ^2/dof =1$) which would indicate a perfect fit.  A very low $\chi ^2$, such as we have here, indicates that we have under-constrained our model by allowing too many free parameters for the number of data points. Thus, having run the simulation for more $N$ and $T$ values would serve to better constrain our fit, as well as give us more confidence that the parameters we calculated adequately described the results of our simulation.  \\
+We can see from Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig} that the error bars are significant for the range of data displayed.  These large errors did not decrease with the number of statistics, a trend which can be seen in Table 3.  From these figures, we can see that these large errors contribute to some uncertainty around the slope of the best fit lines.  This uncertainty makes it unclear as to whether or not we can confidently describe the behavior of the chain.  Even though the best fit lines have a very low $\chi ^2$ value, this value is misleading, as alluded to previously.    \\
 
 \begin{table*}
 \begin{center}
@@ -195,7 +195,7 @@ $N=5000$ & 64 (0.343484) & 500 (0.312228) & 1000 (0.330394) \\ \hline
 $N=10000$ & 43 (0.295998)  & 500 (0.335429) & 810 (0.321192) \\ \hline
 $N=15000$ & 45 (0.376915) & 290 (0.343053) & 1147 (0.318437) \\ \hline
 \end{tabular}
-\caption{Number of chains produced for each combination of number of atoms in the chain (first column) and temperature (top row).  The number in parentheses gives the error calculated for each of these points, from Table 1.  It is clear to see that the errors do not decrease as the number of calculations increases.}
+\caption{Number of chains produced for each combination of number of atoms in the chain (first column) and temperature (top row).  The number in parentheses gives the error calculated for each of these points, also given in Table 1.  It is clear to see that the errors do not decrease as the number of calculations increases, even though, in some cases, the number of simulations increases by orders of magnitude.}
 \end{center}
 \end{table*}
 
