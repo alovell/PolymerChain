@@ -16,7 +16,7 @@
 \author{A. Lovell}
 \maketitle
 
-\noindent \textbf{Abstract}  Polymer chains are of great interest in biophysics, and while one might think to use a molecular dynamics calculation to simulate their configurations, Monte Carlo techniques are more widely used.  In this project, we will use the Rosenbluth algorithm within a Monte Carlo framework to simulate polymer chains of varying lengths at several temperatures to investigate the correlation between the size of the polymer structure and the number of atoms within the chain.  This will be compared to theoretical models to investigate the systems we can create only using the Lennard-Jones potential.
+\noindent \textbf{Abstract}  Polymer chains are of great interest in biophysics, and while one might think to use a molecular dynamics calculation to simulate their configurations, for practical reasons, Monte Carlo techniques are more widely used.  In this project, we will use the Rosenbluth algorithm within a Monte Carlo framework to simulate polymer chains of varying lengths at several temperatures to investigate the correlation between the size of the polymer structure and the number of atoms within the chain.  This will be compared to theoretical models to investigate the systems we can create only using the Lennard-Jones potential.
 
 \begin{multicols}{2}
 
@@ -103,11 +103,9 @@ R_g^2 = \frac{1}{N} \sum \limits _{i=1}^{N} \langle (r_i - R_{cm})^2 \rangle
 R \sim N^{\nu}
 \end{equation}
 
-The temperature, $T_{\Theta}$, defines the transition between a chain-like polymer ($T<T_{\Theta}$) and a dense, ball-like polymer ($T>T_{\Theta}$).  Below $T_{\Theta}$, $\nu = 1/ 2$, at $T_{\Theta}$, $\nu = 1/3$, and above $T_{\Theta}$, $\nu$ scales with the dimensionality of the simulation - namely, $\nu = 3/(d+2)$, where $d$ is the dimensionality of the simulation.  \\
+The temperature, $T_{\Theta}$, defines the transition between a chain-like polymer ($T<T_{\Theta}$) and a dense, ball-like polymer ($T>T_{\Theta}$).  Below $T_{\Theta}$, $\nu = 1/ 2$, at $T_{\Theta}$, $\nu = 1/3$, and above $T_{\Theta}$, $\nu$ scales with the dimensionality of the simulation - namely, $\nu = 3/(d+2)$, where $d$ is the dimensionality of the simulation.  \cite{PhilNotes}\\
 
-\textbf{CITE THIS!!!!!!} \\
-
-This is the main observable we will be calculating for this Monte Carlo simulation.  From this, we can also define the $\Theta $-temperature, $T_{\Theta}$.
+$R_g$ is the main observable we will be calculating for this Monte Carlo simulation.  From this, we can also define the $\Theta $-temperature, $T_{\Theta}$.
 
 \subsection{Structure of the Code}
 
@@ -131,7 +129,7 @@ In this section, we present the main result of our calculation.  We were able to
 \begin{center}
 \begin{tabular}{| c | c | c | c | c | c | c |}
 \hline & $T=1.0$ eV &  & $T=2.0$ eV &  & $T=5.0$ eV & \\ \hline
- & \textbf{$R_g$} & \textbf{$\sigma _{R_g}$} & \textbf{$R_g$} & \textbf{$\sigma _{R_g}$} & \textbf{$R_g$} & \textbf{$\sigma _{R_g}$} \\ \hline
+ & \textbf{$log(R_g)$} & \textbf{$\sigma _{R_g}$} & \textbf{$log(R_g)$} & \textbf{$\sigma _{R_g}$} & \textbf{$log(R_g)$} & \textbf{$\sigma _{R_g}$} \\ \hline
 $N=5000$ & 2.5119 & 0.343484 & 3.109664 & 0.312228 & 3.308621 & 0.330394 \\ \hline
 $N=10000$ & 2.783211 & 0.295998 & 3.656107 & 0.335429 & 3.642807 & 0.321192 \\ \hline
 $N=15000$ & 2.994968 & 0.376915 & 3.722428 & 0.343053 & 3.872835 & 0.318437 \\ \hline
@@ -169,11 +167,11 @@ In Figures \ref{T1fig}, \ref{T2fig}, and \ref{T5fig}, we show the results of the
 
 \begin{table*}
 \begin{center}
-\begin{tabular}{| c | c | c | c |}
-\hline \textbf{T (eV)} & \textbf{m} & \textbf{b} & \textbf{$\chi ^2$} \\ \hline
-1.0 & 0.4345 & -1.1968 & 0.007327 \\ \hline
-2.0 & 0.5826 & -1.8139 & 0.1483 \\ \hline
-5.0 & 0.5102 & -1.042 & 0.003000 \\ \hline
+\begin{tabular}{| c | c | c | c | c |}
+\hline \textbf{T (eV)} & \textbf{m} & \textbf{b} & \textbf{s$_m$} & \textbf{$\chi ^2$} \\ \hline
+1.0 & 0.4345 & -1.1968 & 0.03440 & 0.007327 \\ \hline
+2.0 & 0.5826 & -1.8139 & 0.1642 & 0.1483 \\ \hline
+5.0 & 0.5102 & -1.042 & 0.02239 & 0.003000 \\ \hline
 \end{tabular}
 \caption{Slopes ($m$) and y-intercepts ($b$) for the best fit lines for the simulation data in Table 1.  Best fit lines are given as $log(R_g) = m*log(N) + b$.  Here $log$ indicates the natural log.  In this case, the slope $m$ gives the value for $\nu$ from (\ref{RNcomparison}).}
 \end{center}
@@ -202,7 +200,7 @@ Still, in the region where our simulation is valid, we have calculated reasonabl
 \section{Conclusion}
 \label{concl}
 
-In this work, we were able to construct a Monte Carlo simulation of a three-dimensional polymer chain of approximately $10^4$ atoms at temperatures of 1.0 eV, 2.0 eV, and 5.0 eV.  The polymer was simulated in without being confined to a grid.  By comparing the natural log of the gyration radius and the number of atoms in the chain, we were able to discover properties of the chain itself and find the exponent, $\nu$.  We found that $\nu = 0.4345 \pm 0.03440$ for $T = 1.0 $ ev, $\nu = 0.5826 \pm 0.1642$ for $T =2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T=5.0$ eV.  Through this, we were able to compare to known behavior above and below the $\Theta$-temperature.  \\
+In this work, we were able to construct a Monte Carlo simulation of a three-dimensional polymer chain of approximately $10^4$ atoms at temperatures of 1.0 eV, 2.0 eV, and 5.0 eV.  The polymer was simulated in without being confined to a grid.  By comparing the natural log of the gyration radius and the number of atoms in the chain, we were able to discover properties of the chain itself and find the exponent, $\nu$.  We found that $\nu = 0.4345 \pm 0.03440$ for $T = 1.0 $ eV, $\nu = 0.5826 \pm 0.1642$ for $T =2.0$ eV, and $\nu = 0.5102 \pm 0.02239$ for $T=5.0$ eV.  Through this, we were able to compare to known behavior above and below the $\Theta$-temperature.  \\
 
 However, there is still future work that could be done regarding this project.  While we calculated a polymer chain in three-dimensions, it would also be interesting to calculate higher dimensional chains and examine the scaling of the size of the chain with the number of atoms added to the chain, $\nu$.  The same scaling ($\nu = 1/3$ below $T_\Theta$, $\nu = 1/2$ at $T_\Theta$, and $\nu = 3/(d+2)$ above $T_\Theta$) should hold, but it would be an interesting project nonetheless to generalize the code.  It would also be interesting to examine the differences between this type of self-avoiding walk that is not confined to a grid and a self-avoid walk confined to a cubic grid (or other shape grid).  From this, we could see how the dimensionality affects various grids on which the chain is created.  \\
 
@@ -243,7 +241,13 @@ Because we are calculating a fit to data, we should also report a $\chi ^2$ valu
 
 Although this does not give us an error on the fits that are being made, it does give some indication as to the quality of the fit.\\
 
-The errors for the best fits were calculated using linear regression methods.  \textbf{Find out about the way excel works for this}
+Using similar ideas, errors for the fits can be calculated (although these errors still do not take into account the error from the simulations).  For these errors (such as those in Table 1), we take
+
+\begin{equation}
+s^2 = \frac{1}{n} \sum \limits _{i=1} ^{n} (y^{data}_i - y^{fit}_i)^2
+\end{equation}
+
+\noindent where $s$ is the error on the fit, $n$ is the number of data points fit, $y^{data}$ is the result of the simulation, and $y^{fit}$ is the result from the fit (both calculated at the same point).  \cite{staterr}
 
 \end{multicols}
 

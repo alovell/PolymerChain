@@ -32,4 +32,9 @@ Loup Verlet.
   properties of lennard-jones molecules.
 \newblock {\em Phys. Rev.}, 159:98--103, Jul 1967.
 
+\bibitem{staterr}
+S.A.~Teukolsky W.H.~Press, B.P.~Flannery and W.T. Vetterling.
+\newblock {\em Numerical Recipes in FORTRAN: The Art of Scientific Computing}.
+\newblock Cambridge University Press, 2 edition, 1992.
+
 \end{thebibliography}
